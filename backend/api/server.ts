@@ -10,11 +10,11 @@ app.use("/users", userRouter);
 
 AppDataSource.initialize()
     .then(() => {
-        console.log("Data Source has been initialized!");
+        console.log("Data Source initialized ✅");
         app.listen(PORT, () => {
-            console.log(`Servidor backend escuchando en puerto ${PORT}`);
+            console.log(`Servidor escuchando en puerto ${PORT} 🚀`);
         });
     })
     .catch((err) => {
-        console.error("Error during Data Source initialization", err);
+        console.error("Error al inicializar la base de datos:", err);
     });
