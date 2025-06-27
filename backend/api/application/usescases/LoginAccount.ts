@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export async function loginAccount(
+    name: string,
     email: string,
     password: string,
     accountRepository: AccountRepository
@@ -18,7 +19,7 @@ export async function loginAccount(
     }
 
     const token = jwt.sign(
-        { accountId: account.id },
+        { accountId: account.id, accountName: account.name },
         process.env.JWT_SECRET as string,
         { expiresIn: "1h" }
     );
