@@ -8,4 +8,9 @@ export class UserRepositoryImpl implements UserRepository {
     async save(user: User): Promise<User> {
         return this.ormRepo.save(user);
     }
+
+    async findAll(): Promise<User[]> {
+    return await this.ormRepo.find();
+}
+
 }
